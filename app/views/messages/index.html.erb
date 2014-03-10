@@ -1,0 +1,20 @@
+<h1>Listing messages</h1>
+<table>
+	<tr>
+		<th>Reader Id</th>
+		<th>Tag Id</th>
+		<th>Message Time</th>
+		<th>Activity</th>
+	</tr>
+
+<% @messages.each do |message| %>
+	<tr>
+		<td><%= message.reader_id %></td>
+		<td><%= message.tag_id %></td>
+		<td><%= message.message_time %></td>
+		<td><%= message.activity %></td>
+<% end %>
+<% if @messages.size == 0 %>
+	<em>No Messages Found</em>
+<% end %>
+</table>

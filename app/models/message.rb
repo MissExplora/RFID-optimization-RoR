@@ -5,5 +5,5 @@ class Message < ActiveRecord::Base
   validates :reader_id, presence: true
   validates :tag_id, presence: true
   validates :message_time, presence: true
-  validates :activity, inclusion: {in: %w(IN OUT)}
+  validates :activity, inclusion: {in: %w(in out)}
 end

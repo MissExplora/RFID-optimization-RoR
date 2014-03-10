@@ -1,0 +1,18 @@
+<h1>Listing readers</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Baskets</th>
+		<th>Working</th>
+	</tr>
+
+<% @readers.each do |reader| %>
+	<tr>
+		<td><%= reader.name %></td>
+		<td><%= reader.baskets %></td>
+		<td><%= reader.working %></td>
+<% end %>
+<% if @readers.size == 0 %>
+	<em>No Readers Found</em>
+<% end %>
+</table>
