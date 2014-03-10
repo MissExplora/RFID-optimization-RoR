@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_time: 2014-03-10 14:34:06
+  last_time: 2014-03-10 14:34:06
+  baskets: 1
+  working: false
+
+two:
+  name: MyString
+  start_time: 2014-03-10 14:34:06
+  last_time: 2014-03-10 14:34:06
+  baskets: 1
+  working: false

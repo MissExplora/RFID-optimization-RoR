@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reader_id: 1
+  tag_id: 1
+  message_time: 2014-03-10 14:36:28
+  activity: MyString
+
+two:
+  reader_id: 1
+  tag_id: 1
+  message_time: 2014-03-10 14:36:28
+  activity: MyString
