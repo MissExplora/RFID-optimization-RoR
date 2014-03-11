@@ -11,8 +11,8 @@
 		<td><%= tag.id %></td>
 		<td><%= tag.type %></td>
 		<td><%= tag.active %></td>
-		<td> link_to "Enter row", enter_tag_path(tag) </td>
-		<td> link_to "Leave row", leave_tag_path(tag) </td>
+		<td> link_to "Enter row", enter_tag_path(tag.id) </td>
+		<td> link_to "Leave row", leave_tag_path(tag.id) </td>
 <% end %>
 <% if @tags.size == 0 %>
 	<em>No Tags Found</em>

@@ -1,4 +1,24 @@
 Rfid::Application.routes.draw do
+  
+  resources :tags
+  resources :readers
+  resources :messages
+  
+  root to: "tags#index"
+  
+  get '/tags_list' => 'tags#index', as: 'tags_list'
+  get '/readers_list' => 'readers#index', as: 'readers_list'
+  get '/messages_list' => 'messages#index', as: 'messages_list'
+  
+  get '/new_tag' => 'tags#new'
+  get '/new_reader' => 'readers#new'
+  
+  get '/enter_row/:id' => 'tags#enter', as: 'enter_tag'
+  get '/leave_row/:id' => 'tags#leave', as: 'leave_tag'
+  
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
