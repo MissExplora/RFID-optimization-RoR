@@ -11,6 +11,8 @@
 		<td><%= reader.name %></td>
 		<td><%= reader.baskets %></td>
 		<td><%= reader.working %></td>
+		<td> link_to "Open", open_reader_path(reader.id) </td>
+		<td> link_to "Close", close_reader_path(reader.id) </td>
 <% end %>
 <% if @readers.size == 0 %>
 	<em>No Readers Found</em>

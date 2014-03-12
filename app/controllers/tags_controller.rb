@@ -18,9 +18,25 @@ class TagsController < ApplicationController
   end
   
   def enter
+    @tag = Tag.find(params[:id])
+    if @tag.active == true
+      # write error that the tag is already active
+    else
+      @tag.active = true
+      @tag.save
+      render 'index'
+    end
   end
   
   def leave
+    @tag = Tag.find(params[:id])
+    if @tag.active == false
+      # write error that the tag is already not active
+    else
+      @tag.active = false
+      @tag.save
+      render 'index'
+    end
   end
   
 end

@@ -1,20 +1,14 @@
 Rfid::Application.routes.draw do
   
-  resources :tags
-  resources :readers
-  resources :messages
+  resources :tags, :readers, :messages
   
   root to: "tags#index"
   
-  get '/tags_list' => 'tags#index', as: 'tags_list'
-  get '/readers_list' => 'readers#index', as: 'readers_list'
-  get '/messages_list' => 'messages#index', as: 'messages_list'
-  
-  get '/new_tag' => 'tags#new'
-  get '/new_reader' => 'readers#new'
-  
   get '/enter_row/:id' => 'tags#enter', as: 'enter_tag'
   get '/leave_row/:id' => 'tags#leave', as: 'leave_tag'
+  
+  get '/open_reader/:id' => 'readers#open', as: 'open_reader'
+  get '/close_reader/:id' => 'reader#close', as: 'close_reader'
   
   
   
