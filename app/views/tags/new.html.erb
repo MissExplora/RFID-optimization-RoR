@@ -1,1 +1,17 @@
-bla
+<h1>Adding New Tag<h1>
+	
+<%= form_for @tag do |f| %>
+	<p>
+		<%= f.label :category %><br>
+		<%= f.text_field :category %>
+	</p>
+	
+	<p>
+		<%= f.label :start_time %><br>
+		<%= f.text_field :start_time %>
+	</p>
+	
+	<p>
+		<%= f.submit%>
+	</p>
+<% end %>
