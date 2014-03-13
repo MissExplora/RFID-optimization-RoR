@@ -9,7 +9,7 @@ class ReadersController < ApplicationController
   end
   
   def create
-    @reader = Reader.new(params[:tag].permit[:name, :start_time, :working])
+    @reader = Reader.new(params[:reader].permit[:name, :start_time])
     if @reader.save
       redirect_to action: 'index', status: :found, notice: "New Reader Created!"
     else
@@ -20,7 +20,7 @@ class ReadersController < ApplicationController
   def open
     @reader = Reader.find(params[:id])
     if @reader.working == true
-      # write error that the reader is already active
+      redirect_to action: 'index', notice: 'Reader is already active'
     else
       @reader.working = true
       @reader.save
@@ -31,7 +31,7 @@ class ReadersController < ApplicationController
   def close
     @reader = Reader.find(params[:id])
     if @reader.working == false
-      # write error that the reader is already not active
+      redirect_to action: 'index', notice: 'Reader is already inactive'
     else
       @reader.working = false
       @reader.save

@@ -9,7 +9,7 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.new(params[:tag].permit[:type, :start_time]) # set :active to false
+    @tag = Tag.new(params[:tag].permit[:category, :start_time])
     if @tag.save
       redirect_to action: 'index', status: :found, notice: "New Tag Created!"
     else
@@ -20,7 +20,7 @@ class TagsController < ApplicationController
   def enter
     @tag = Tag.find(params[:id])
     if @tag.active == true
-      # write error that the tag is already active
+      redirect_to action: 'index', notice: 'Tag is already active'
     else
       @tag.active = true
       @tag.save
@@ -31,7 +31,7 @@ class TagsController < ApplicationController
   def leave
     @tag = Tag.find(params[:id])
     if @tag.active == false
-      # write error that the tag is already not active
+      redirect_to action: 'index', notice: 'Tag is already inactive'
     else
       @tag.active = false
       @tag.save

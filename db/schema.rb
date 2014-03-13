@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310133628) do
+ActiveRecord::Schema.define(version: 20140313113512) do
 
   create_table "messages", force: true do |t|
     t.integer  "reader_id"
@@ -26,17 +26,17 @@ ActiveRecord::Schema.define(version: 20140310133628) do
     t.string   "name"
     t.datetime "start_time"
     t.datetime "last_time"
-    t.integer  "baskets"
-    t.boolean  "working"
+    t.integer  "baskets",    default: 0
+    t.boolean  "working",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tags", force: true do |t|
-    t.string   "type"
+    t.string   "category"
     t.datetime "start_time"
     t.datetime "last_time"
-    t.boolean  "active"
+    t.boolean  "active",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
