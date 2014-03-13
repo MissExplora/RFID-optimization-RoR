@@ -1,1 +1,17 @@
-bla
+<h1>Adding New Reader<h1>
+	
+<%= form_for @reader do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+	
+	<p>
+		<%= f.label :start_time %><br>
+		<%= f.text_field :start_time %>
+	</p>
+	
+	<p>
+		<%= f.submit%>
+	</p>
+<% end %>

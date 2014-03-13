@@ -9,7 +9,7 @@ class TagsController < ApplicationController
   end
   
   def create
-    @tag = Tag.new(params[:tag].permit[:category, :start_time])
+    @tag = Tag.new(params[:tag].permit(:category, :start_time))
     if @tag.save
       redirect_to action: 'index', status: :found, notice: "New Tag Created!"
     else

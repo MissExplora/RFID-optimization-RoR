@@ -9,7 +9,7 @@ class ReadersController < ApplicationController
   end
   
   def create
-    @reader = Reader.new(params[:reader].permit[:name, :start_time])
+    @reader = Reader.new(params[:reader].permit(:name, :start_time))
     if @reader.save
       redirect_to action: 'index', status: :found, notice: "New Reader Created!"
     else
