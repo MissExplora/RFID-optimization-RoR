@@ -25,7 +25,7 @@ class TagsController < ApplicationController
     else
       @tag.active = true
       @tag.save
-      render 'index'
+      redirect_to action: 'index'
     end
   end
   
