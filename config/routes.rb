@@ -4,8 +4,8 @@ Rfid::Application.routes.draw do
   
   root to: "tags#index"
   
-  get '/leave_row/:id' => 'tags#leave', as: 'leave_tag'
   get '/enter_row/:reader_id/tags/:id' => 'tags#enter', as: 'enter_tag'
+  get '/leave_row/:reader_id/tags/:id' => 'tags#leave', as: 'leave_tag'
   
   get '/open_reader/:id' => 'readers#open', as: 'open_reader'
   get '/close_reader/:id' => 'reader#close', as: 'close_reader'
