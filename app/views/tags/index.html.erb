@@ -4,6 +4,9 @@
 		<th>Id</th>
 		<th>Category</th>
 		<th>Active</th>
+		<% @readers.each do |reader| %>
+			<th><%= reader.name %></th>
+		<% end %>
 	</tr>
 
 <% @tags.each do |tag| %>
@@ -11,8 +14,10 @@
 		<td><%= tag.id %></td>
 		<td><%= tag.category %></td>
 		<td><%= tag.active %></td>
-		<td><%= link_to "Enter row", enter_tag_path(tag.id) %> </td>
-		<td><%= link_to "Leave row", leave_tag_path(tag.id) %> </td>
+		<% @readers.each do |reader| %>
+			<td><%= link_to "Enter row", enter_tag_path(reader.id, tag.id) %></td>
+			<td><%= link_to "Leave row", leave_tag_path(reader.id, tag.id) %></td>
+		<% end %>
 <% end %>
 <% if @tags.size == 0 %>
 	<em>No Tags Found</em>

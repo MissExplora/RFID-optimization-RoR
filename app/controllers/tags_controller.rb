@@ -2,6 +2,7 @@ class TagsController < ApplicationController
   
   def index
     @tags = Tag.all
+    @readers = Reader.where(working: true)
   end
   
   def new
