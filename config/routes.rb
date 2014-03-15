@@ -8,7 +8,7 @@ Rfid::Application.routes.draw do
   get '/leave_row/:reader_id/tags/:id' => 'tags#leave', as: 'leave_tag'
   
   get '/open_reader/:id' => 'readers#open', as: 'open_reader'
-  get '/close_reader/:id' => 'reader#close', as: 'close_reader'
+  get '/close_reader/:id' => 'readers#close', as: 'close_reader'
   
   
   
