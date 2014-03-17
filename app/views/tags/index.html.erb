@@ -1,12 +1,16 @@
 <h1>Listing tags</h1>
+
+<%= link_to 'New tag', new_tag_path %><br>
+
+<%= link_to 'Readers List', controller: "readers" %><br>
+
+<%= link_to 'Messages List', controller: "messages" %>
+
 <table>
 	<tr>
 		<th>Id</th>
 		<th>Category</th>
 		<th>Active</th>
-		<% @readers.each do |reader| %>
-			<th><%= reader.name %></th>
-		<% end %>
 	</tr>
 
 <% @tags.each do |tag| %>
@@ -14,9 +18,12 @@
 		<td><%= tag.id %></td>
 		<td><%= tag.category %></td>
 		<td><%= tag.active %></td>
-		<% @readers.each do |reader| %>
-			<td><%= link_to "Enter row", enter_tag_path(reader.id, tag.id) %></td>
-			<td><%= link_to "Leave row", leave_tag_path(reader.id, tag.id) %></td>
+		<% if tag.active == false %>
+			<% @readers.each do |reader| %>
+				<td><%= link_to "Enter #{reader.name}", enter_tag_path(reader.id, tag.id) %></td>
+			<% end %>
+		<% else %>
+			<td><%= link_to "Leave #{@name[tag.id]}", leave_tag_path(@activated[tag.id], tag.id)%></td>
 		<% end %>
 <% end %>
 <% if @tags.size == 0 %>

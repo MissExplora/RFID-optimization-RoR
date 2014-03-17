@@ -1,8 +1,24 @@
 class ReadersController < ApplicationController
   
   def index
-    @readers = Reader.all
-  end
+      @readers = Reader.all
+      @opened = Reader.where(working: true)
+      @messages = Message.all
+      tags = Tag.all
+      @counter = Array.new
+      @opened.each do |o|
+        @counter[o.id] = 0
+        tags.each do |t|
+          if t.active == true
+            reading = @messages.where(tag_id: t.id).order(:created_at).last
+            if o.id == reading.reader_id
+              @counter[o.id] += 1
+            end
+          end
+        end
+      end
+    end
+  
   
   def new
     @reader = Reader.new
@@ -38,5 +54,6 @@ class ReadersController < ApplicationController
       render 'index'
     end
   end
+  
   
 end

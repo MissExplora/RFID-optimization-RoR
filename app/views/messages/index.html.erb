@@ -1,9 +1,14 @@
 <h1>Listing messages</h1>
+
+<%= link_to 'Tags List', controller: "tags" %><br>
+
+<%= link_to 'Readers List', controller: "readers" %><br>
+
+
 <table>
 	<tr>
 		<th>Reader Id</th>
 		<th>Tag Id</th>
-		<th>Message Time</th>
 		<th>Activity</th>
 	</tr>
 
@@ -11,7 +16,6 @@
 	<tr>
 		<td><%= message.reader_id %></td>
 		<td><%= message.tag_id %></td>
-		<td><%= message.message_time %></td>
 		<td><%= message.activity %></td>
 <% end %>
 <% if @messages.size == 0 %>

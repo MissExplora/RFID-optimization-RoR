@@ -3,6 +3,16 @@ class TagsController < ApplicationController
   def index
     @tags = Tag.all
     @readers = Reader.where(working: true)
+    @messages = Message.all
+    @activated = Array.new
+    @name = Array.new
+    @tags.each do |t|
+      if t.active == true
+        variable = @messages.where(tag_id: t.id).order(:created_at).last
+        @activated[t.id] = variable.reader_id
+        @name[t.id] = variable.reader.name
+      end
+    end
   end
   
   def new

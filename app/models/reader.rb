@@ -6,6 +6,19 @@ class Reader < ActiveRecord::Base
   validates :start_time, presence: true
 
   def tags_waiting
-    self.tags.where(active: true).distinct
+    @messages = Message.all
+    @tags = Tag.all
+    counter = 0
+    @tags.each do |t|
+      if t.active == true
+        @reading = messages.find_by(tag_id: t.id).order(:created_at).last
+        if self.id == @reading.reader_id
+          counter = counter+1
+        end
+      end
+    end
+    return counter
   end
+  
+  
 end
